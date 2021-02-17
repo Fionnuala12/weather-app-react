@@ -147,7 +147,7 @@ function App() {
       </div>
       <small> 
     <p>
-    <a href="https://github.com/Fionnuala12/weather-app-final-project">Open-source code</a> by Fionnuala Wilson
+    <a href="https://github.com/Fionnuala12/weather-app-react">Open-source code</a> by Fionnuala Wilson
     </p>
 </small>
     </div>
