@@ -90,7 +90,7 @@ function App() {
                     <div className="col box">
                       {weatherData.minTemp}°C
                       <div>
-                        <i className="fas fa-thermometer-quarter"></i>
+                        <i className="fas fa-thermometer-quarter"></i>{" "}
                         Min. Temp
                       </div>
                     </div>
