@@ -1,13 +1,24 @@
+import React, { useState } from "react";
 import 'font-awesome/css/font-awesome.min.css';
+import axios from "axios";
 import './App.css';
 
 function App() {
+
+  const [ready, setReady] = useState(false);
+  const [temp, setTemp] = useState(null);
+
+  function handleResponse (response){
+    setTemp(response.data.main.temp);
+    setReady(true);
+  }
+
   
   let weatherData = {
     city: "Paris",
     date: "Monday, 1st Feb",
     description: "Sunny",
-    temperature: 22,
+    temperature: (Math.round(temp)),
     humidity: 97,
     wind: 1,
     maxTemp: 5,
@@ -15,6 +26,7 @@ function App() {
     img: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
   };
 
+  if (ready) {
   return (
     <div className="App">
       <div className="container">
@@ -45,13 +57,15 @@ function App() {
             <h2>{weatherData.date}</h2>
 
             <div className="row">
-              <div className="col-6">
+              <div className="col-6 mt-4">
                 <div className="clearfix">
-                  <img src={weatherData.img} alt={weatherData.description} />
+                  <img src={weatherData.img} alt={weatherData.description} className="float-left"/>
+                  <div className="float-left">
                   <div className="main-weather">
                     <span className="today-weather-temp">
                       {weatherData.temperature}
                     </span>
+                    <span className="units">
                     <a href="/" className="active">
                       °C
                     </a>{" "}
@@ -59,8 +73,10 @@ function App() {
                     <a href="/" className="inactive">
                       F°
                     </a>
+                    </span>
                     <div className="text-capitalize">
                       {weatherData.description}
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -153,6 +169,14 @@ function App() {
     </div>
  </div>
   );
-}
 
+} else {
+  const apiKey = "06c9d19d30f0be8b128071a6b5e0aeb3"; 
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(handleResponse);
+  
+  return "Loading...."
+
+}
+}
 export default App;
