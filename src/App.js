@@ -4,29 +4,24 @@ import axios from "axios";
 import './App.css';
 
 function App() {
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
-  const [ready, setReady] = useState(false);
-  const [temp, setTemp] = useState(null);
-
-  function handleResponse (response){
-    setTemp(response.data.main.temp);
-    setReady(true);
-  }
-
-  
-  let weatherData = {
+  function handleResponse(response){
+    setWeatherData({
+    ready: true,
     city: "Paris",
     date: "Monday, 1st Feb",
-    description: "Sunny",
-    temperature: (Math.round(temp)),
-    humidity: 97,
-    wind: 1,
-    maxTemp: 5,
-    minTemp: 0,
+    description: response.data.weather[0].description,
+    temperature: (response.data.main.temp),
+    humidity: (response.data.main.humidity),
+    wind: (response.data.wind.speed),
+    maxTemp: response.data.main.temp_max,
+    minTemp: response.data.main.temp_min,
     img: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-  };
+  })
+};
 
-  if (ready) {
+  if (weatherData.ready) {
   return (
     <div className="App">
       <div className="container">
@@ -63,7 +58,7 @@ function App() {
                   <div className="float-left">
                   <div className="main-weather">
                     <span className="today-weather-temp">
-                      {weatherData.temperature}
+                  {Math.round(weatherData.temperature)}
                     </span>
                     <span className="units">
                     <a href="/" className="active">
@@ -85,26 +80,26 @@ function App() {
                 <div className="container grid">
                   <div className="row row-cols-2">
                     <div className="col box">
-                      {weatherData.humidity}%
+                      {Math.round(weatherData.humidity)}%
                       <div>
                         <i className="fas fa-tint"></i> Humidity
                       </div>
                     </div>
                     <div className="col box">
-                      {weatherData.wind}kmh
+                      {Math.round(weatherData.wind)}kmh
                       <div>
                         <i className="fas fa-wind"></i> Wind
                       </div>
                     </div>
                     <div className="col box">
-                      {weatherData.maxTemp}°C
+                      {Math.round(weatherData.maxTemp)}°C
                       <div>
                         <i className="fas fa-thermometer-three-quarters"></i>{" "}
                         Max Temp
                       </div>
                     </div>
                     <div className="col box">
-                      {weatherData.minTemp}°C
+                      {Math.round(weatherData.minTemp)}°C
                       <div>
                         <i className="fas fa-thermometer-quarter"></i>{" "}
                         Min. Temp
@@ -179,4 +174,5 @@ function App() {
 
 }
 }
+
 export default App;
