@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import 'font-awesome/css/font-awesome.min.css';
 import axios from "axios";
+import FormattedDate from './FormattedDate';
 import './App.css';
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
     setWeatherData({
     ready: true,
     city: "Paris",
-    date: "Monday, 1st Feb",
+    date: new Date(response.data.dt * 1000),
     description: response.data.weather[0].description,
     temperature: (response.data.main.temp),
     humidity: (response.data.main.humidity),
@@ -49,7 +50,7 @@ function App() {
               </div>
             </form>
             <h1>{weatherData.city}</h1>
-            <h2>{weatherData.date}</h2>
+            <h2><FormattedDate date={weatherData.date} /></h2>
 
             <div className="row">
               <div className="col-6 mt-4">
