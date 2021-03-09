@@ -34,7 +34,7 @@ function App(props) {
     wind: (response.data.wind.speed),
     maxTemp: response.data.main.temp_max,
     minTemp: response.data.main.temp_min,
-    img: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+    img: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   });
 }
 
