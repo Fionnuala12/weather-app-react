@@ -10,7 +10,7 @@ export default function WeatherData(props) {
         <div className="row">
           <div className="col-6 mt-4">
             <div className="clearfix"> <div className="float-left">
-                <WeatherIcon code={props.info.icon} alt={props.info.description}/>
+                <WeatherIcon code={props.info.icon}/>
                 </div>
               <div className="main-weather">
                 <span className="today-weather-temp">

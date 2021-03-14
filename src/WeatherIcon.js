@@ -1,28 +1,34 @@
 
 import React from "react"; 
-import { AnimatedWeatherIcon } from 'animated-weather-icon';
+import ReactAnimatedWeather from "react-animated-weather";
 
 export default function WeatherIcon(props) {
         const codeMapping = {
-          "01d": "/AnimatedWeatherIcons/day.svg",
-          "01n": "/AnimatedWeatherIcons/night.svg",
-          "02d": "/AnimatedWeatherIcons/cloudy-day-1.svg",
-          "02n": "/AnimatedWeatherIcons/cloudy-night-1.svg",
-          "03d": "/AnimatedWeatherIcons/cloudy-day-2.svg",
-          "03n": "/AnimatedWeatherIcons/cloudy-night-2.svg",
-          "04d": "/AnimatedWeatherIcons/cloudy.svg",
-          "04n": "/AnimatedWeatherIcons/cloudy.svg",
-          "09d": "/AnimatedWeatherIcons/rainy-6.svg",
-          "09n": "/AnimatedWeatherIcons/rainy-6.svg",
-          "10d": "/AnimatedWeatherIcons/rainy-3.svg",
-          "10n": "/AnimatedWeatherIcons/rainy-5.svg",
-          "11d": "/AnimatedWeatherIcons/thunder.svg",
-          "11n": "/AnimatedWeatherIcons/thunder.svg",
-          "13d": "/AnimatedWeatherIcons/snowy-3.svg",
-          "13n": "/AnimatedWeatherIcons/snowy-6.svg",
-          "50d": "/AnimatedWeatherIcons/fog.svg",
-          "50n": "/AnimatedWeatherIcons/fog.svg",
-        };
-      
-        return <img src={codeMapping[props.code]} alt={props.alt} />;
+          "01d": "CLEAR_DAY",
+          "01n": "CLEAR_NIGHT",
+          "02d": "PARTLY_CLOUDY_DAY",
+          "02n": "PARTLY_CLOUDY_NIGHT",
+          "03d": "PARTLY_CLOUDY_DAY",
+          "03n": "PARTLY_CLOUDY_NIGHT",
+          "04d": "CLOUDY",
+          "04n": "CLOUDY",
+          "09d": "RAIN",
+          "09n": "RAIN",
+          "10d": "RAIN",
+          "10n": "RAIN",
+          "11d": "RAIN",
+          "11n": "RAIN",
+          "13d": "SNOW",
+          "13n": "SNOW",
+          "50d": "FOG",
+          "50n": "FOG"
+  };
+        return (
+          <ReactAnimatedWeather
+            icon = {codeMapping[props.code]}
+            color = "#2e2c4c"
+            size = {60}
+            animate = {true}
+            /> 
+        ) 
       }

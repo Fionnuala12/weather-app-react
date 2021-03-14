@@ -15,9 +15,11 @@
     "bootstrap": "^4.6.0",
     "font-awesome": "^4.7.0",
     "react": "^17.0.1",
+    "react-animated-weather": "^4.0.1",
     "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
+    "weather-underground-icons": "^1.0.0",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
