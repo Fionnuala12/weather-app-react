@@ -15,8 +15,13 @@ export default function WeatherForecast(props){
 
 if (loaded){
     return(
-        <div class="col-2"> 
+        <div className="WeatherForecast row">
         <WeatherForecastPreview data={forecast.list[0]}/>
+        <WeatherForecastPreview data={forecast.list[1]}/>
+        <WeatherForecastPreview data={forecast.list[2]}/>
+        <WeatherForecastPreview data={forecast.list[3]}/>
+        <WeatherForecastPreview data={forecast.list[4]}/>
+        <WeatherForecastPreview data={forecast.list[5]}/>
         </div>
     );
 } else {
