@@ -56,7 +56,7 @@ export default function WeatherData(props) {
           </div>
         </div>
         <hr />
-        <WeatherForecast city={props.info.city} units={props.unit} setUnit={props.setUnit}/>
+        <WeatherForecast city={props.info.city} unit={props.unit}/>
         </div>       
     )
 }
