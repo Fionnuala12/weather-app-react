@@ -2,6 +2,7 @@ import React from "react";
 import FormattedDate from './FormattedDate';
 import WeatherIcon from './WeatherIcon';
 import WeatherUnit from "./WeatherUnit";
+import WeatherForecast from "./WeatherForecast";
 
 export default function WeatherData(props) {
     return(
@@ -55,50 +56,7 @@ export default function WeatherData(props) {
           </div>
         </div>
         <hr />
-        <div class="row weather-forecast">
-              <div class="col-2"> 
-              <h4> Sun </h4>
-              <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" />
-              <div class="weather-forecast-temperature">
-                <strong> 17°</strong> 15°
-              </div>
-              </div>
-              <div class="col-2"> 
-              <h4> Mon </h4>
-              <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" />
-              <div class="weather-forecast-temperature">
-                <strong> 17°</strong> 15°
-              </div>
-              </div>
-              <div class="col-2"> 
-              <h4> Tues </h4>
-              <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" />
-              <div class="weather-forecast-temperature">
-                <strong> 17°</strong> 15°
-              </div>
-              </div>
-              <div class="col-2"> 
-              <h4> Wed </h4>
-              <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" />
-              <div class="weather-forecast-temperature">
-                <strong> 17°</strong> 15°
-              </div>
-              </div>
-              <div class="col-2"> 
-              <h4> Thurs </h4>
-              <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" />
-              <div class="weather-forecast-temperature">
-                <strong> 17°</strong> 15°
-              </div>
-              </div>
-              <div class="col-2"> 
-              <h4> Fri </h4>
-              <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" />
-              <div class="weather-forecast-temperature">
-                <strong> 17°</strong> 15°
-              </div>
-              </div>
-      </div>
-    </div>
+        <WeatherForecast city={props.info.city}/>
+        </div>       
     )
 }
