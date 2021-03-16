@@ -6,7 +6,8 @@ import './App.css';
 
 function App(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [city, setCity] = useState(props.city)
+  const [city, setCity] = useState(props.city); 
+  const [unit, setUnit] = useState("metric");
 
   function handleSubmit(event){
     event.preventDefault(); 
@@ -19,7 +20,7 @@ function App(props) {
 
   function search(){
     const apiKey = "06c9d19d30f0be8b128071a6b5e0aeb3"; 
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -66,7 +67,7 @@ function App(props) {
                 </div>
               </div>
             </form>
-           <WeatherData info={weatherData} />
+           <WeatherData info={weatherData} unit={unit} setUnit={setUnit}/>
            </div> 
           </div>  
         </div> 

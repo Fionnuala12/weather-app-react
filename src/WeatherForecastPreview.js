@@ -9,21 +9,26 @@ export default function WeatherForecastPreview(props) {
         return `${hours}:00`;
     }
 
-    function maxTemp(){
-        let maxTemp = Math.round(props.data.main.temp_max)
-        return `${maxTemp}°C`
-    }
-
-    function minTemp(){
-    let minTemp = Math.round(props.data.main.temp_min)
-    return `${minTemp}°C`
-    }
-
-    return (
+    let highC = Math.round(props.data.main.temp_max); 
+    let lowC = Math.round(props.data.main.temp_min); 
+    let highF = Math.round((highC * 9/5) + 32); 
+    let lowF = Math.round((lowC * 9/5) + 32); 
+  
+    if (props.unit === "metric") {
+        return (
+            <div class="WeatherForecastPreview col-2">
+                  {hours()}
+                  <WeatherIcon code={props.data.weather[0].icon} />
+                    <strong> {highC}°C </strong> {lowC}°C
+                  </div>
+        )
+    } else {
+        return(
         <div class="WeatherForecastPreview col-2">
-              {hours()}
-              <WeatherIcon code={props.data.weather[0].icon} />
-                <strong> {maxTemp()} </strong> {minTemp()}
-              </div>
-    )
+        {hours()}
+        <WeatherIcon code={props.data.weather[0].icon} />
+          <strong> {highF}°F </strong> {lowF}°F
+        </div>
+        )
+    }
 }
