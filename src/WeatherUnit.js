@@ -1,6 +1,5 @@
 import React from "react";
 export default function WeatherUnit (props){
- 
 
  function showFahrenheit(event){
      event.preventDefault();
@@ -17,6 +16,12 @@ export default function WeatherUnit (props){
    return (props.metric * 9/5) + 32;
  }
 
+ let highC = Math.round(props.data.maxTemp); 
+ let lowC = Math.round(props.data.minTemp); 
+ let highF = Math.round((highC * 9/5) + 32); 
+ let lowF = Math.round((lowC * 9/5) + 32); 
+
+
  if(props.unit === 'metric'){
 return(
     <div className="WeatherUnit">
@@ -30,7 +35,12 @@ return(
         F°
       </a>
       </span>
-      </div>
+      <div className="text-capitalize">
+      {props.description}
+    </div>
+    <i className="fas fa-thermometer-three-quarters"> </i>{" "} <strong> {highC}°C </strong>| <i className="fas fa-thermometer-quarter"></i>{lowC}°C 
+  </div>
+
 )
 } else {
    return( <div className="WeatherUnit">
@@ -42,7 +52,11 @@ return(
       |{" "}
         F°
       </span>
-      </div>
+      <div className="text-capitalize">
+      {props.description}
+    </div>
+    <strong> {highF}°F </strong> {lowF}°F
+  </div>
    )
 }
 }
