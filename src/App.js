@@ -35,7 +35,10 @@ function App(props) {
     wind: (response.data.wind.speed),
     maxTemp: response.data.main.temp_max,
     minTemp: response.data.main.temp_min,
-    icon: response.data.weather[0].icon
+    icon: response.data.weather[0].icon,
+    sunrise: response.data.sys.sunrise,
+    sunset: response.data.sys.sunset, 
+    timezone: response.data.timezone
   });
 }
 

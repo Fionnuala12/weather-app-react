@@ -3,6 +3,7 @@ import FormattedDate from './FormattedDate';
 import WeatherIcon from './WeatherIcon';
 import WeatherUnit from "./WeatherUnit";
 import WeatherForecast from "./WeatherForecast";
+import WeatherExtraInfo from "./WeatherExtraInfo";
 
 export default function WeatherData(props) {
     return(
@@ -23,39 +24,10 @@ export default function WeatherData(props) {
               </div>
           </div>
           <div className="col-6">
-            <div className="container grid">
-              <div className="row row-cols-2">
-                <div className="col box">
-                  {Math.round(props.info.humidity)}%
-                  <div>
-                    <i className="fas fa-tint"></i> Humidity
-                  </div>
-                </div>
-                <div className="col box">
-                  {Math.round(props.info.wind)}kmh
-                  <div>
-                    <i className="fas fa-wind"></i> Wind
-                  </div>
-                </div>
-                <div className="col box">
-                  {Math.round(props.info.maxTemp)}°C
-                  <div>
-                    <i className="fas fa-thermometer-three-quarters"></i>{" "}
-                    Max Temp
-                  </div>
-                </div>
-                <div className="col box">
-                  {Math.round(props.info.minTemp)}°C
-                  <div>
-                    <i className="fas fa-thermometer-quarter"></i>{" "}
-                    Min. Temp
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            <WeatherExtraInfo data={props.info} date={props.info.date}/>
+         </div> 
         </div>
-        <hr />
+      <hr />
         <WeatherForecast city={props.info.city} unit={props.unit}/>
         </div>       
     )
