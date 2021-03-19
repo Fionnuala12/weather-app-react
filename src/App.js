@@ -18,6 +18,18 @@ function App(props) {
     setCity(event.target.value);
   }
 
+  function handleLocation(position) {
+    let apiKey = `12087b5c6e656cb621cae20a854dfb64`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${unit}`;
+
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function currentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(handleLocation);
+  }
+
   function search(){
     const apiKey = "06c9d19d30f0be8b128071a6b5e0aeb3"; 
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
@@ -64,7 +76,7 @@ function App(props) {
                     value="Search"
                     className="btn btn-primary"
                   />
-                  <button className="btn btn-secondary">
+                  <button className="btn btn-secondary" onClick={currentLocation} type="submit">
                     Current Location
                   </button>
                 </div>
