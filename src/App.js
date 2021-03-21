@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import 'font-awesome/css/font-awesome.min.css';
+import Loader from "react-loader-spinner";
 import axios from "axios";
 import WeatherData from './WeatherData';
 import './App.css';
@@ -95,7 +96,17 @@ function App(props) {
 );
 } else {
   search();
-  return "Loading...."
+  return (
+    <div>
+    <Loader
+      type="ThreeDots"
+      color="#00BFFF"
+      height={100}
+      width={100}
+      timeout={3000} 
+    />
+    </div>
+  )
   }
 }
 
