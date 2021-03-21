@@ -97,7 +97,7 @@ function App(props) {
 } else {
   search();
   return (
-    <div>
+    <div className="loader">
     <Loader
       type="ThreeDots"
       color="#00BFFF"
