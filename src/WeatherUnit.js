@@ -1,4 +1,6 @@
 import React from "react";
+import './WeatherUnit.css';
+
 export default function WeatherUnit (props){
 
  function showFahrenheit(event){
@@ -35,10 +37,12 @@ return(
         F°
       </a>
       </span>
-      <div className="text-capitalize">
-      {props.description}
+      <div className="max-min-temp">
+    {" "} {highC}°C | {lowC}°C 
+    </div> 
+      <div className="text-capitalize description">
+      <strong>{props.description}</strong>
     </div>
-    <i className="fas fa-thermometer-three-quarters"> </i>{" "} <strong> {highC}°C </strong>| <i className="fas fa-thermometer-quarter"></i>{lowC}°C 
   </div>
 
 )
@@ -52,10 +56,12 @@ return(
       |{" "}
         F°
       </span>
-      <div className="text-capitalize">
+      <div className="max-min-temp">
+    {highF}°F | {lowF}°F
+    </div>
+      <div className="text-capitalize description">
       {props.description}
     </div>
-    <strong> {highF}°F </strong> {lowF}°F
   </div>
    )
 }

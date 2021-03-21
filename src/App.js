@@ -62,7 +62,7 @@ function App(props) {
           <div className="weather-app">
             <form onSubmit={handleSubmit}>
               <div className="row">
-                <div className="col-6">
+                <div className="col-8">
                   <input
                     type="text"
                     placeholder="Enter city...."
@@ -70,14 +70,14 @@ function App(props) {
                     onChange={updateCity}
                   />
                 </div>
-                <div className="col-6">
+                <div className="col-4">
                   <input
                     type="submit"
                     value="Search"
                     className="btn btn-primary"
                   />
                   <button className="btn btn-secondary" onClick={currentLocation} type="submit">
-                    Current Location
+                  <i class="fas fa-map-marker-alt"></i>
                   </button>
                 </div>
               </div>

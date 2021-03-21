@@ -9,13 +9,13 @@ export default function WeatherExtraInfo(props){
     <div className="container grid">
     <div className="row row-cols-2">
       <div className="col box">
-        {Math.round(props.data.humidity)}%
+        <strong>{Math.round(props.data.humidity)}%</strong>
         <div>
           <i className="fas fa-tint"></i> Humidity
         </div>
       </div>
       <div className="col box">
-        {Math.round(props.data.wind)}kmh
+        <strong>{Math.round(props.data.wind)} kmh</strong>
         <div>
           <i className="fas fa-wind"></i> Wind
         </div>
@@ -24,13 +24,13 @@ export default function WeatherExtraInfo(props){
       <div className="col box">
         <WeatherSunrise sunrise={props.data.sunrise} timezone={props.data.timezone} />
         <div>
-         Sunrise 
+        <i class="far fa-sun"></i> Sunrise 
         </div>
       </div>
       <div className="col box">
         <WeatherSunset sunset={props.data.sunset} timezone={props.data.timezone} />
         <div>
-          Sunset
+        <i class="fas fa-sun"></i> Sunset
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@ export default function WeatherForecastPreview(props) {
             <div class="WeatherForecastPreview col-2">
                   {hours()}
                   <WeatherIcon code={props.data.weather[0].icon} />
-                    <strong> {highC}°C </strong> {lowC}°C
+                   <div> <strong> {highC}°C </strong> </div>{lowC}°C
                   </div>
         )
     } else {
@@ -27,7 +27,7 @@ export default function WeatherForecastPreview(props) {
         <div class="WeatherForecastPreview col-2">
         {hours()}
         <WeatherIcon code={props.data.weather[0].icon} />
-          <strong> {highF}°F </strong> {lowF}°F
+         <div> <strong> {highF}°F </strong> </div>{lowF}°F
         </div>
         )
     }

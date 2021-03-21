@@ -13,7 +13,7 @@ if (sunsetMinutes < 10){
 }
 return (
     <div className="WeatherSunrise"> 
-    <i class="far fa-sun"></i> {sunsetHours}:{sunsetMinutes}
+  <strong>{sunsetHours}:{sunsetMinutes}</strong>
     </div>
 );
 }
