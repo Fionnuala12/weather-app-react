@@ -25,7 +25,7 @@ if (loaded && props.city === forecast.city.name){
     );
 } else {
 const apiKey = "06c9d19d30f0be8b128071a6b5e0aeb3"; 
-let url =  `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=${props.unit}`
+let url =  `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=metric`
 axios.get(url).then(showForecast);
 return null;
 }

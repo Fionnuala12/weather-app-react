@@ -60,7 +60,7 @@ return(
     {highF}°F | {lowF}°F
     </div>
       <div className="text-capitalize description">
-      {props.description}
+      <strong>{props.description}</strong>
     </div>
   </div>
    )

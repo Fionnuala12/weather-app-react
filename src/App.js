@@ -21,7 +21,7 @@ function App(props) {
 
   function handleLocation(position) {
     let apiKey = `12087b5c6e656cb621cae20a854dfb64`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${unit}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(handleResponse);
   }
@@ -33,7 +33,7 @@ function App(props) {
 
   function search(){
     const apiKey = "06c9d19d30f0be8b128071a6b5e0aeb3"; 
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -99,11 +99,15 @@ function App(props) {
   return (
     <div className="loader">
     <Loader
-      type="ThreeDots"
+      type="Watch"
       color="#00BFFF"
       height={100}
       width={100}
       timeout={3000} 
+      style={{
+        position: 'absolute', left: '50%', top: '50%',
+        transform: 'translate(-50%, -50%)'
+      }}
     />
     </div>
   )
